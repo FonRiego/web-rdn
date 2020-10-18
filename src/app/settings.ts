@@ -21,7 +21,7 @@ const getProtocol = function() {
  * @param {String} hostname window.location.hostname
  * @returns {Boolean} True if hostname includes 'localhost'
  */
-const isLocalhost = function(hostname) {
+const isLocalhost = function(hostname: string) {
   const patt = new RegExp(/^localhost/)
   return patt.test(hostname)
 }
