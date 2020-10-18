@@ -15,7 +15,10 @@ router.post('/addMember', async (req, res) => {
   console.log(member)
   await member.save()
   res.json({
-    status: 'Member created'
+    status: 'Member created',
+    body: {
+      member
+    }
   })
 })
 

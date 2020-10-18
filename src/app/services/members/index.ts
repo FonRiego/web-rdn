@@ -1,3 +1,4 @@
 import getMembersApi from './getMembers'
+import postMemberApi from './postMember'
 
-export { getMembersApi }
+export { getMembersApi, postMemberApi }
