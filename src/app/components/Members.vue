@@ -10,7 +10,7 @@ ul#members
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import { getMembersApi } from '@/app/services/members'
+import { getMembersApi } from '../services/members'
 import { Member } from '../interfaces/member'
 
 export default defineComponent({
