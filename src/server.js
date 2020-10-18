@@ -15,7 +15,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes
-app.use(require('./routes'))
+const memberRoutes = require('./routes/member')
+app.use('/api/member', memberRoutes)
 
 app.set('port', process.env.PORT || 3000)
 
