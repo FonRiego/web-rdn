@@ -4,13 +4,13 @@ const router = express.Router()
 
 const Member = require('../models/Member')
 
-router.get('/members', async (req, res) => {
+router.get('/fetchMembers', async (req, res) => {
   const members = await Member.find()
   console.log('members', members)
   res.json(members)
 })
 
-router.post('/members', async (req, res) => {
+router.post('/addMember', async (req, res) => {
   const member = new Member(req.body)
   console.log(member)
   await member.save()
