@@ -10,7 +10,7 @@
     "lint": "vue-cli-service lint",
     "back-dev": "nodemon src/server.js",
     "back-devbabel": "nodemon src/server.js --exec babel-node",
-    "back-start": "babel-node src/server.js --exec"
+    "start": "babel-node src/server.js --exec"
   },
   "dependencies": {
     "connect-history-api-fallback": "^1.6.0",
