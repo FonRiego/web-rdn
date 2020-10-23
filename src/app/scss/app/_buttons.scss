@@ -1,0 +1,31 @@
+.wrn-button {
+  &:not(.style-secondary),
+  &.style-primary {
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+
+    &:hover {
+      background-color: $secondary-color-darker;
+      border-color: $secondary-color-darker;
+    }
+  }
+  &.style-secondary {
+    border-color: $secondary-color;
+    color: $secondary-color;
+
+    &:hover {
+      border-color: $secondary-color-darker;
+      color: $secondary-color-darker;
+    }
+  }
+
+  &.disabled {
+    background-color: $gray-scale-color-default;
+    border-color: $gray-scale-color-default;
+
+    &:hover {
+      background-color: $gray-scale-color-default;
+      border-color: $gray-scale-color-default;
+    }
+  }
+}
