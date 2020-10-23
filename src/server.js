@@ -20,10 +20,10 @@ app.use('/api/member', memberRoutes)
 
 app.set('port', process.env.PORT || 3000)
 
-app.get('/', function(req, res) {
-  console.log('Example app listening on port' + ' ' + app.get('port'))
-  res.send('Example app listening on port' + ' ' + app.get('port'))
-})
+// app.get('/', function(req, res) {
+//   console.log('Example app listening on port' + ' ' + app.get('port'))
+//   res.send('Example app listening on port' + ' ' + app.get('port'))
+// })
 
 // Database connection --- wrdn
 const uri = 'mongodb://localhost:27017/wrdn'
