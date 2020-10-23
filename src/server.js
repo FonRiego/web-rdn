@@ -40,7 +40,8 @@ mongoose
 // Middleware for Vue.js router's history mode
 const history = require('connect-history-api-fallback')
 app.use(history())
-app.use(express.static(path.join(__dirname, 'public')))
+app.use('/dist', express.static(path.join(__dirname, '/dist')))
+// app.use(express.static(path.join(__dirname, 'public')))
 
 app.listen(app.get('port'), function() {
   console.log('Example app listening on port' + ' ' + app.get('port'))
