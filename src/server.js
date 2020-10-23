@@ -14,6 +14,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
+// Routes
+const memberRoutes = require('./routes/member')
+app.use('/api/member', memberRoutes)
+
 app.set('port', process.env.PORT || 3000)
 
 app.get('/', function(req, res) {
@@ -21,8 +25,8 @@ app.get('/', function(req, res) {
   res.send('Example app listening on port' + ' ' + app.get('port'))
 })
 
-// Database connection --- dbName
-const uri = 'mongodb://localhost:27017/dbName'
+// Database connection --- wrdn
+const uri = 'mongodb://localhost:27017/wrdn'
 const options = { useNewUrlParser: true, useCreateIndex: true }
 mongoose
   .connect(uri, options)

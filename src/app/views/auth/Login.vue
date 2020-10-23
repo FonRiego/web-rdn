@@ -1,11 +1,11 @@
 <template lang="pug">
-h1 Esto es la home
+h1 Esto es el login  
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Home'
+  name: 'Login'
 })
 </script>
