@@ -7,8 +7,8 @@ const cors = require('cors')
 const path = require('path')
 const mongoose = require('mongoose')
 
-const port = process.env.PORT || '8080'
-const mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/wrdn'
+const port = process.env.PORT
+const mongodbUri = process.env.MONGODB_URI
 
 const app = express()
 app.set('port', port)
