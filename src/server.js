@@ -7,7 +7,11 @@ const cors = require('cors')
 const path = require('path')
 const mongoose = require('mongoose')
 
+const port = process.env.PORT || '8080'
+const mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/wrdn'
+
 const app = express()
+app.set('port', port)
 
 // Middlewares
 app.use(morgan('tiny'))
@@ -20,19 +24,15 @@ app.use(express.static(path.join(__dirname, 'public')))
 const memberRoutes = require('./routes/member')
 app.use('/api/member', memberRoutes)
 
-const hostname = process.env.HOST
-const port = process.env.PORT
-
-app.get('/', function(req, res) {
-  console.log('get / is working fine')
-  res.send('Example app listening on port' + ' ' + port)
-})
+// app.get('/', function(req, res) {
+//   console.log('get / is working fine')
+//   res.send('Example app listening on port' + ' ' + port)
+// })
 
 // Database connection --- wrdn
-const uri = `mongodb://${hostname}:27017/wrdn`
 const options = { useNewUrlParser: true, useCreateIndex: true }
 mongoose
-  .connect(uri, options)
+  .connect(mongodbUri, options)
   .then(() => {
     console.log('Connected to DB')
   })
@@ -46,6 +46,6 @@ app.use(history())
 app.use('/dist', express.static(path.join(__dirname, '/dist')))
 // app.use(express.static(path.join(__dirname, 'public')))
 
-app.listen(port, function() {
-  console.log('Example app listening on port' + ' ' + port)
+app.listen(app.get('port'), function() {
+  console.log('Example app listening on port' + ' ' + app.get('port'))
 })
