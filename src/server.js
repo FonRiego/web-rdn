@@ -1,11 +1,17 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+require('dotenv').config()
+
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const path = require('path')
 const mongoose = require('mongoose')
 
+const port = process.env.PORT || '8080'
+const mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/wrdn'
+
 const app = express()
+app.set('port', port)
 
 // Middlewares
 app.use(morgan('tiny'))
@@ -18,18 +24,15 @@ app.use(express.static(path.join(__dirname, 'public')))
 const memberRoutes = require('./routes/member')
 app.use('/api/member', memberRoutes)
 
-app.set('port', process.env.PORT || 3000)
-
-app.get('/', function(req, res) {
-  console.log('get / is working fine')
-  res.send('Example app listening on port' + ' ' + app.get('port'))
-})
+// app.get('/', function(req, res) {
+//   console.log('get / is working fine')
+//   res.send('Example app listening on port' + ' ' + port)
+// })
 
 // Database connection --- wrdn
-const uri = 'mongodb://localhost:27017/wrdn'
 const options = { useNewUrlParser: true, useCreateIndex: true }
 mongoose
-  .connect(uri, options)
+  .connect(mongodbUri, options)
   .then(() => {
     console.log('Connected to DB')
   })
